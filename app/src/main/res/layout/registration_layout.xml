@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@drawable/banner"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="40dp"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:textColorHint="#FFFFFF"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border"
+            android:textColor="#FFFFFF"
+            android:id="@+id/etName"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:textColorHint="#FFFFFF"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border"
+            android:textColor="#FFFFFF"
+            android:id="@+id/etEmail"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Mobile"
+            android:textColorHint="#FFFFFF"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border"
+            android:textColor="#FFFFFF"
+            android:id="@+id/etMobile"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/border"
+            android:layout_marginTop="10dp"
+            android:textColorHint="#FFFFFF"
+            android:id="@+id/etPassword"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign up"
+            android:background="@drawable/border"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="15dp"
+            android:id="@+id/btnRegister"
+            />
+
+    </LinearLayout>
