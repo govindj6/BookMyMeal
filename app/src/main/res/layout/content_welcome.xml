@@ -15,10 +15,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorPrimary"
-        app:tabTextColor="#FFFFFF"
-        app:tabIndicatorColor="#FFFFFF"
-        app:tabSelectedTextColor="#FFFFFF"
+        android:background="@color/text_icon"
+        app:tabTextColor="@color/primaryText"
+        app:tabIndicatorColor="@color/colorPrimaryDark"
+        app:tabSelectedTextColor="@color/primaryText"
         app:tabIndicatorHeight="5dp">
 
     </android.support.design.widget.TabLayout>
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_layout">
@@ -39,7 +39,7 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/colorPrimary"
         android:foreground="?android:attr/selectableItemBackground"
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="#FFFFFF"
@@ -48,6 +48,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation"
-        tools:ignore="MissingConstraints"></android.support.design.widget.BottomNavigationView>
+        tools:ignore="MissingConstraints">
+
+    </android.support.design.widget.BottomNavigationView>
 
 </android.support.constraint.ConstraintLayout>

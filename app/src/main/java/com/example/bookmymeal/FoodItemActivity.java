@@ -1,10 +1,13 @@
 package com.example.bookmymeal;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +25,10 @@ import java.util.ArrayList;
 
 
 public class FoodItemActivity extends Fragment {
-    ListView food_lv;
+    RecyclerView food_lv;
     ArrayList<FoodItem>al;
-    ArrayAdapter<FoodItem>adapter;
+    Context context;
+    ///ArrayAdapter<FoodItem>adapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -72,12 +76,12 @@ public class FoodItemActivity extends Fragment {
                     int categoryId=object.getInt("categoryId");
                     String categoryName=object.getString("categoryName");
                     String image=Server.SERVER_ADDRESS+"/food_images/"+object.getString("image");
-
                     FoodItem f=new FoodItem(id,name,price,description,categoryId,categoryName,image);
                     al.add(f);
                     System.out.print(f);
                 }
-                adapter=new FoodItemAdapter(getActivity(),al);
+                FooditemRvAdapter adapter = new FooditemRvAdapter(context,al);
+                food_lv.setLayoutManager(new LinearLayoutManager(context));
                 food_lv.setAdapter(adapter);
 
             }catch (Exception e){

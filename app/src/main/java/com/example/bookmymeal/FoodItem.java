@@ -8,7 +8,7 @@ public class FoodItem {
     private int categoryId;
     private String categoryName;
     private String image;
-
+    int qty;
     public FoodItem() {
 
     }

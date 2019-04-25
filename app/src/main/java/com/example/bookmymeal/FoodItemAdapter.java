@@ -25,13 +25,13 @@ public class FoodItemAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        FoodItem foodItem=al.get(position);
+        final FoodItem foodItem=al.get(position);
         View v= LayoutInflater.from(context).inflate(R.layout.food_item_list,null);
         TextView tvname=v.findViewById(R.id.tvName);
         TextView tvprice=v.findViewById(R.id.tv_price);
         ImageView ivFoodImage=v.findViewById(R.id.iv_image);
         tvname.setText(foodItem.getName());
-        tvprice.setText("Price: "+foodItem.getPrice());
+        tvprice.setText("\u20B9 "+foodItem.getPrice());
 
         final TextView tvQuantity=v.findViewById(R.id.tv_quantity);
         ImageView ivIncrement=v.findViewById(R.id.iv_increment);
@@ -39,19 +39,20 @@ public class FoodItemAdapter extends ArrayAdapter {
         ivIncrement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int qty=Integer.parseInt(tvQuantity.getText().toString());
+                int qty=Integer.parseInt(""+tvQuantity.getText().toString());
                 tvQuantity.setText(""+(++qty));
+
             }
         });
         ivDecrement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int qty = Integer.parseInt(tvQuantity.getText().toString());
-                if (qty>0)
-                tvQuantity.setText(""+(--qty));
+                if (qty>0) {
+                    tvQuantity.setText(""+(--qty));
+                }
             }
         });
-
         AQuery aQuery=new AQuery(context);
         aQuery.id(ivFoodImage).image(foodItem.getImage());
         return v;

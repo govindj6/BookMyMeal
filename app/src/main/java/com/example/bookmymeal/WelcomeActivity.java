@@ -1,6 +1,7 @@
 package com.example.bookmymeal;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,11 +17,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class WelcomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     TabLayout tabLayout;
     FragmentManager manager;
+    SharedPreferences sp=null;
     BottomNavigationView navigationView;
 
     @Override
@@ -29,7 +32,7 @@ public class WelcomeActivity extends AppCompatActivity
         setContentView(R.layout.welcome);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        sp=getSharedPreferences("user",MODE_PRIVATE);
         ActionBar ab = getSupportActionBar();
         ab.setTitle("BookMyMeal");
         ab.setElevation(0);
@@ -77,13 +80,16 @@ public class WelcomeActivity extends AppCompatActivity
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
+                Intent in;
+                switch (menuItem.getItemId()) {
                     case R.id.navCart:
-                        Intent in=new Intent(WelcomeActivity.this,CartActivity.class);
+                        in = new Intent(WelcomeActivity.this, CartActivity.class);
                         startActivity(in);
                         break;
-                    case R.id.navAccount:break;
-                    case R.id.navExplore:break;
+                    case R.id.navAccount:
+                        in = new Intent(WelcomeActivity.this, AccountActivity.class);
+                        startActivity(in);
+                        break;
                 }
                 return true;
             }
@@ -129,8 +135,9 @@ public class WelcomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.foodItems) {
-            // Handle the camera action
+
         } else if (id == R.id.foodPackages) {
+            Toast.makeText(getApplicationContext(), "foodpackage", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.todaySpecial) {
 
@@ -141,9 +148,13 @@ public class WelcomeActivity extends AppCompatActivity
         } else if (id == R.id.changePassword) {
 
         } else if (id == R.id.logout) {
-
+            SharedPreferences.Editor editor=sp.edit();
+            editor.putString("id","0");
+            editor.commit();
+            Intent in = new Intent(this, LoginActivity.class);
+            startActivity(in);
+            finish();
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
