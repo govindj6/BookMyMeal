@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="3dp">
+
+    <ImageView
+        android:id="@+id/iv_imageSpecial"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="3dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvName_special"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:text="Name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/primaryText"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_imageSpecial" />
+
+    <TextView
+        android:id="@+id/tvprice_dis_special"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:text="@string/Rs"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_price_special"
+        app:layout_constraintTop_toBottomOf="@+id/tvName_special" />
+
+    <TextView
+        android:id="@+id/tv_price_special"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:text="@string/Rs"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/secondaryText"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName_special" />
+
+    <ImageView
+        android:id="@+id/iv_decrementSpecial"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="0.2"
+        android:src="@drawable/decrement"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_imageSpecial" />
+
+    <TextView
+        android:id="@+id/tv_quantity_special"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="0.1"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="@color/primaryText"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/iv_decrementSpecial"
+        app:layout_constraintTop_toBottomOf="@+id/iv_imageSpecial" />
+
+    <ImageView
+        android:id="@+id/iv_incrementSpecial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/increment"
+        app:layout_constraintEnd_toStartOf="@+id/tv_quantity_special"
+        app:layout_constraintTop_toBottomOf="@+id/iv_imageSpecial" />
+
+
+</android.support.constraint.ConstraintLayout>
