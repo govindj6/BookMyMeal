@@ -16,11 +16,14 @@ import java.util.ArrayList;
 public class FoodItemAdapter extends ArrayAdapter {
     Context context;
     ArrayList<FoodItem> al;
+    ArrayList<Cart>cartList;
 
+   Cart c = null;
     public FoodItemAdapter(Context context,ArrayList<FoodItem>al) {
         super(context,R.layout.food_item_list,al);
         this.context=context;
         this.al=al;
+        cartList = new ArrayList<>();
     }
 
     @Override
@@ -36,23 +39,23 @@ public class FoodItemAdapter extends ArrayAdapter {
         final TextView tvQuantity=v.findViewById(R.id.tv_quantity);
         ImageView ivIncrement=v.findViewById(R.id.iv_increment);
         ImageView ivDecrement=v.findViewById(R.id.iv_decrement);
-        ivIncrement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int qty=Integer.parseInt(""+tvQuantity.getText().toString());
-                tvQuantity.setText(""+(++qty));
-
-            }
-        });
-        ivDecrement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int qty = Integer.parseInt(tvQuantity.getText().toString());
-                if (qty>0) {
-                    tvQuantity.setText(""+(--qty));
-                }
-            }
-        });
+//        ivIncrement.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int qty=Integer.parseInt(""+tvQuantity.getText().toString());
+//                tvQuantity.setText(""+(++qty));
+//                c = new Cart(foodItem.getId(),foodItem.getName(),foodItem.getPrice(),qty);
+//            }
+//        });
+//        ivDecrement.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int qty = Integer.parseInt(tvQuantity.getText().toString());
+//                if (qty>0) {
+//                    tvQuantity.setText(""+(--qty));
+//                }
+//            }
+//        });
         AQuery aQuery=new AQuery(context);
         aQuery.id(ivFoodImage).image(foodItem.getImage());
         return v;

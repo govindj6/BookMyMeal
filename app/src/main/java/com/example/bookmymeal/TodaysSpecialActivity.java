@@ -48,7 +48,7 @@ public class TodaysSpecialActivity extends Fragment {
                 try {
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject jsonObject = response.getJSONObject(i);
-
+                        Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
                         FoodItem f=new FoodItem();
                         f.setCategoryId(jsonObject.getInt("categoryId"));
                         f.setName(jsonObject.getString("name"));
